@@ -141,6 +141,10 @@ main {
   }
   p {
     color: rgba(0,0,0,0.6);
+
+    span {
+      white-space: nowrap;
+    }
     &:not(.footnote) {
       sup {
         font-size: 0.65em;
@@ -169,6 +173,7 @@ main {
   a {
     color: black;
     text-decoration: none;
+    white-space: nowrap;
 
     &:hover {
       background-color: yellow;
