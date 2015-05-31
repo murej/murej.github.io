@@ -1,0 +1,29 @@
+/* COLOURS */
+
+/* TYPOGRAPHY */
+$font-size: 19px;
+$modular-scale-ratio: $golden;
+$modular-scale-base: 1; //(12/strip-units($font-size));
+
+$line-height: modular-scale(1);
+$em-base: $font-size;
+
+@font-face {
+  font-family: 'Queue Book';
+  src: url('fonts/Queue-Book.otf');
+}
+@font-face {
+  font-family: 'Queue Medium';
+  src: url('fonts/Queue-Medium.otf');
+}
+
+$font-queue-book: "Queue Book", Helvetica, Arial, sans-serif;
+$font-queue-medium: "Queue Medium", Helvetica, Arial, sans-serif;
+
+/* GRID */
+$mq-base-font-size: $font-size !default;
+$mq-breakpoints: (
+  mobile:  760px,
+  desktop: 1024px,
+  wide: 1681px
+);

@@ -1,0 +1,180 @@
+// bower:scss
+@import "bourbon/app/assets/stylesheets/_bourbon.scss";
+@import "sass-mq/_mq.scss";
+// endbower
+
+@import "settings";
+@import "mixins";
+
+body {
+  font-size: $font-size;
+  line-height: $line-height;
+  font-family: $font-queue-book;
+}
+
+main {
+
+  box-sizing: border-box;
+
+  @include mq($until: mobile) {
+    width: 100%;
+    padding: lines(1.5) lines(1);
+
+    h1, h2 {
+      @include font-scale(0);
+
+      a {
+        border-bottom: 1px solid black;
+      }
+    }
+    h1 {
+      margin-bottom: lines(1);
+    }
+    h2 {
+      margin-bottom: lines(1);
+    }
+    p {
+      @include font-scale(0, 0.6);
+
+      &:not(.footnote) {
+        width: 100%;
+        margin: lines(1) 0;
+      }
+      &.footnote {
+        @include font-scale(-1);
+        margin-top: lines(1.5);
+
+        span.divider {
+          margin-top: -1px;
+          width: lines(2);
+        }
+      }
+    }
+  }
+  @include mq($from: mobile, $until: wide) {
+    max-width: mq-get-breakpoint-width(desktop);
+    padding: lines(3);
+
+    h1, h2 {
+      @include font-scale(1, 0.8);
+
+      a {
+        border-bottom: 2px solid black;
+      }
+    }
+    h1 {
+      margin-bottom: lines(1);
+    }
+    h2 {
+      margin-bottom: lines(1.5);
+    }
+    p {
+      &:not(.footnote) {
+        width: 9/12*100%;
+        margin: lines(1) 0;
+      }
+      &.footnote {
+        @include font-scale(-1);
+        margin-top: lines(1.75);
+
+        span.divider {
+          margin-top: -1px;
+          width: lines(2);
+        }
+      }
+    }
+  }
+  @include mq($from: wide) {
+    width: mq-get-breakpoint-width(wide);
+    padding: lines(4) lines(7) lines(4) lines(4);
+
+    h1, h2 {
+      @include font-scale(2, 1.2);
+
+      a {
+        border-bottom: 3px solid black;
+      }
+    }
+    h1 {
+      margin-bottom: lines(2);
+    }
+    h2 {
+      margin-bottom: lines(2.5);
+    }
+    p {
+      @include font-scale(1, 0.8);
+
+      &:not(.footnote) {
+        width: 9/12*100%;
+        margin: lines(1.5) 0;
+      }
+
+      &.footnote {
+        @include font-scale(0);
+        margin-top: lines(2.5);
+
+        span.divider {
+          border-top-width: 2px !important;
+          margin-top: -2px;
+          margin-bottom: lines(0.5);
+          width: lines(3);
+        }
+      }
+    }
+  }
+
+  h1 {
+    font-family: $font-queue-medium;
+
+    span {
+      transition: background-color 2s ease-out;
+
+      &.highlight {
+        transition: background-color 0s;
+        background-color: yellow;
+      }
+    }
+
+  }
+  h2 {
+    font-family: $font-queue-medium;
+  }
+  p {
+    color: rgba(0,0,0,0.6);
+    &:not(.footnote) {
+      sup {
+        font-size: 0.65em;
+        position: relative;
+        top: -0.65em;
+        display: inline-block;
+        margin-left: 0.25em;
+      }
+    }
+    &.footnote {
+      sup {
+        font-size: 0.75em;
+        position: relative;
+        top: -0.5em;
+      }
+      span.divider {
+        display: block;
+        border-top: 1px solid rgba(0,0,0,0.3);
+      }
+      a {
+        /* font-family: $font-queue-medium; */
+      }
+    }
+    a {
+      color: black;
+    }
+  }
+
+  a {
+    color: black;
+    text-decoration: none;
+
+    &:hover {
+      background-color: yellow;
+    }
+  }
+}
