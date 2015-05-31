@@ -9,16 +9,40 @@ $line-height: modular-scale(1);
 $em-base: $font-size;
 
 @font-face {
-  font-family: 'Queue Book';
-  src: url('fonts/Queue-Book.otf');
+    font-family: "Queue Web";
+    src: url("fonts/queueweb-book.eot");
+    font-weight: 400;
+    font-style: normal;
 }
 @font-face {
-  font-family: 'Queue Medium';
-  src: url('fonts/Queue-Medium.otf');
+    font-family: "Queue Web";
+    src: url("fonts/queueweb-book.woff") format("woff");
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Queue Web";
+    src: url("fonts/queueweb-medium.eot");
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: "Queue Web";
+    src: url("fonts/queueweb-medium.woff") format("woff");
+    font-weight: 500;
+    font-style: normal;
 }
 
-$font-queue-book: "Queue Book", Helvetica, Arial, sans-serif;
-$font-queue-medium: "Queue Medium", Helvetica, Arial, sans-serif;
+%font-queue-book {
+  font-family: "Queue Web", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+%font-queue-medium {
+  font-family: "Queue Web", Helvetica, Arial, sans-serif;
+  font-weight: 500;
+  font-style: normal;
+}
 
 /* GRID */
 $mq-base-font-size: $font-size !default;

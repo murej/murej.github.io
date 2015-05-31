@@ -9,7 +9,7 @@
 body {
   font-size: $font-size;
   line-height: $line-height;
-  font-family: $font-queue-book;
+  @extend %font-queue-book;
 }
 
 main {
@@ -124,7 +124,7 @@ main {
   }
 
   h1 {
-    font-family: $font-queue-medium;
+    @extend %font-queue-medium;
 
     span {
       transition: background-color 2s ease-out;
@@ -137,7 +137,7 @@ main {
 
   }
   h2 {
-    font-family: $font-queue-medium;
+    @extend %font-queue-medium;
   }
   p {
     color: rgba(0,0,0,0.6);
@@ -159,9 +159,6 @@ main {
       span.divider {
         display: block;
         border-top: 1px solid rgba(0,0,0,0.3);
-      }
-      a {
-        /* font-family: $font-queue-medium; */
       }
     }
     a {
