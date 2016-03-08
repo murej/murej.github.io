@@ -185,9 +185,14 @@ main {
     color: black;
     text-decoration: none;
     white-space: nowrap;
+    // text-shadow: -1px 1px 0px white, 0px 1px 0px white, 1px 1px 0px white;
+    // padding-bottom: 1px;
+
+    // background: linear-gradient(to bottom, transparent 92.5%, black 0%);
 
     &:hover {
-      background-color: yellow;
+      background: yellow;
+      text-shadow: none;
     }
   }
 }
