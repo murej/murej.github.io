@@ -23,10 +23,6 @@ main {
 
     h1, h2 {
       @include font-scale(0);
-
-      a {
-        border-bottom: 1px solid black;
-      }
     }
     h1 {
       margin-bottom: lines(1);
@@ -35,20 +31,25 @@ main {
       margin-bottom: lines(1);
     }
     p {
-      @include font-scale(0, 0.6);
+      @include font-scale(-1, 0.6);
 
       &:not(.footnote) {
         width: 100%;
-        margin: lines(1) 0;
+        margin: lines(0.5) 0;
       }
-      &.footnote {
-        @include font-scale(-1);
-        margin-top: lines(1.5);
-
-        span.divider {
-          margin-top: -1px;
-          width: lines(2);
-        }
+    }
+    ul.footnotes {
+      margin-top: lines(1.5);
+      li.footnote {
+        @include font-scale(-1, 0.6);
+      }
+      li.divider {
+        margin-top: -1px;
+        padding-bottom: lines(0.5);
+        width: 100%;
+      }
+      a {
+        background-size: 100% 40%;
       }
     }
   }
@@ -58,10 +59,6 @@ main {
 
     h1, h2 {
       @include font-scale(1, 0.75);
-
-      a {
-        border-bottom: 2px solid black;
-      }
     }
     h1 {
       margin-bottom: lines(1);
@@ -74,14 +71,18 @@ main {
         width: 9/12*100%;
         margin: lines(1) 0;
       }
-      &.footnote {
-        @include font-scale(-1);
-        margin-top: lines(1.75);
-
-        span.divider {
-          margin-top: -1px;
-          width: lines(2);
-        }
+    }
+    ul.footnotes {
+      margin-top: lines(1.75);
+      li.footnote {
+        @include font-scale(-1, 0.66);
+      }
+      li.divider {
+        margin-top: -1px;
+        width: lines(2);
+      }
+      a {
+        background-size: 100% 50%;
       }
     }
   }
@@ -91,10 +92,6 @@ main {
 
     h1, h2 {
       @include font-scale(2, 1.15);
-
-      a {
-        border-bottom: 3px solid black;
-      }
     }
     h1 {
       margin-bottom: lines(2);
@@ -109,39 +106,53 @@ main {
         width: 9/12*100%;
         margin: lines(1.5) 0;
       }
-
-      &.footnote {
+    }
+    ul.footnotes {
+      margin-top: lines(2.5);
+      li.footnote {
         @include font-scale(0);
-        margin-top: lines(2.5);
-
-        span.divider {
-          border-top-width: 2px !important;
-          margin-top: -2px;
-          margin-bottom: lines(0.5);
-          width: lines(3);
-        }
+      }
+      li.divider {
+        border-top-width: 2px !important;
+        margin-top: -2px;
+        margin-bottom: lines(0.5);
+        width: lines(3);
+      }
+      a {
+        background-size: 100% 50%;
       }
     }
+
   }
 
   h1 {
     @extend %font-queue-medium;
 
-    span {
-      transition: background-color 2s ease-out;
-
-      &.highlight {
-        transition: background-color 0s;
-        background-color: yellow;
+    span.highlight {
+      background: linear-gradient(to bottom, transparent 0%, yellow 0%);
+      background-size: 100% 0%;
+      transition: background 2s ease-out;
+      padding: 2px 0 1px 0;
+      background-position: center bottom;
+      background-repeat: no-repeat;
+    }
+    &:hover, &:active {
+      span.highlight {
+        background-size: 100% 100%;
+        transition: background 0.066s ease-in;
       }
     }
-
   }
+
   h2 {
     @extend %font-queue-medium;
+
+    a {
+      background-size: 100% 40%;
+    }
   }
   p {
-    color: rgba(0,0,0,0.6);
+    color: rgba(0,0,0,0.8);
 
     span {
       white-space: nowrap;
@@ -153,9 +164,17 @@ main {
         top: -0.65em;
         display: inline-block;
         margin-left: 0.25em;
+        @extend %font-queue-medium;
       }
     }
-    &.footnote {
+    a {
+      color: black;
+    }
+  }
+
+  ul.footnotes {
+    color: rgba(0,0,0,0.8);
+    li.footnote {
       span.new{
         display:inline-block;
         transform:rotate(-5deg);
@@ -172,17 +191,21 @@ main {
         position: relative;
         top: -0.5em;
       }
-      span.divider {
-        display: block;
-        border-top: 1px solid rgba(0,0,0,0.3);
+      a {
+        &:hover {
+          background-size: 100% 100%;
+        }
       }
     }
-    a {
-      color: black;
+    li.divider {
+      display: block;
+      margin-bottom: 9px;
+      border-top: 1px solid rgba(0,0,0,0.4);
     }
   }
 
   a {
+    padding: 2px 0 1px 0;
     color: black;
     text-decoration: none;
     white-space: nowrap;
@@ -190,10 +213,14 @@ main {
     // padding-bottom: 1px;
 
     // background: linear-gradient(to bottom, transparent 92.5%, black 0%);
-
+    background: linear-gradient(to bottom, transparent 0%, yellow 0%);;
+    background-size: 100% 40%;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    transition: background 0.066s ease-in;
     &:hover {
-      background: yellow;
-      text-shadow: none;
+      background-size: 100% 100%;
+      // text-shadow: none;
     }
   }
 }
