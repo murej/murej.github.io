@@ -1,1 +1,0 @@
-"use strict";$(document).ready(function(){$("h1").hover(function(){$(this).children("span").addClass("highlight")},function(){$(this).children("span").removeClass("highlight")})});
